@@ -53,6 +53,7 @@ func (s *APIServer) configureLogger() error {
 func (s *APIServer) configureStore() error {
 	st := store.New(s.config.Store)
 	if err := st.Open(); err != nil {
+		s.logger.Error(err)
 		return err
 	}
 
